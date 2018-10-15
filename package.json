@@ -2,7 +2,7 @@
   "name": "what-do-you-meme-fall-2018",
   "version": "1.0.0",
   "description": "dank memes(tm)",
-  "main": "index.js",
+  "main": "server/index.js",
   "dependencies": {
     "axios": "^0.18.0",
     "express": "^4.16.3",
