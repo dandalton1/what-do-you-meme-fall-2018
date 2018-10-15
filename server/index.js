@@ -1,4 +1,16 @@
-const math = require("./math.js");
+const express = require('express');
+const game = require('./game/controller');
 
-console.log("Hello, world!");
-console.log("1 + 2 = " + math.add(1, 2));
+const app = express();
+
+const port = 3000;
+const server = "localhost";
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use("/", express.static(__dirname + "/../client/"));
+app.use('/game', game);
+
+app.listen(port);
+
+console.log(`listening on: http://${server}:${port}`);
