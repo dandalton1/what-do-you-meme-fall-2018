@@ -16,3 +16,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  img {
+    animation: imgAnimation 1.5s infinite alternate-reverse;
+  }
+  @keyframes imgAnimation {
+    0% {transform: scaleX(0); }
+    100% {transform: scaleX(1); }
+  }
+</style>

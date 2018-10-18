@@ -8,7 +8,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "clean": "del /f /q dist && del node_modules",
-    "rebuild": "del /f /q dist && del /f /q node_modules && npm install && vue-cli-service build",
+    "rebuild": "del /f /q dist && vue-cli-service build",
     "run": "node server/index.js",
     "rebuildAndRun": "npm run rebuild && node server/index.js"
   },

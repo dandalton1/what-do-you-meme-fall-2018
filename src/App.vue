@@ -21,7 +21,15 @@
   a {
     font-weight: bold;
     color: #2c3e50;
+    transition: color 0.25s;
     &.router-link-exact-active {
+      color: #777;
+      cursor: not-allowed;
+    }
+    &:hover {
+      color: #42b983;
+    }
+    &:active {
       color: #42b983;
     }
   }
