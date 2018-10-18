@@ -5,7 +5,6 @@ var game = new Game();
 
 const app = express.Router();
 
-
 app.get("/", function(req, res){
     res.send({...game, playedCaptions: game.getPlayedCaptions()});
 })

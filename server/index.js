@@ -1,6 +1,7 @@
-const express = require('express');
-const game = require('./game/controller');
+import express from "express";
+import game from "./game/controller";
 
+// eslint-disable-next-line no-console
 console.log("loading...");
 
 const app = express();
@@ -10,9 +11,10 @@ const server = "localhost";
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use("/", express.static(__dirname + "/../client/"));
+app.use("/", express.static(__dirname + "/../dist/"));
 app.use("/game", game);
 
 app.listen(port);
 
+// eslint-disable-next-line no-console
 console.log(`listening on: http://${server}:${port}`);
