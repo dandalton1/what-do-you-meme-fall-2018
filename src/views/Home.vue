@@ -22,7 +22,8 @@ export default {
     animation: imgAnimation 1.5s infinite alternate-reverse;
   }
   @keyframes imgAnimation {
-    0% {transform: scaleX(0); }
-    100% {transform: scaleX(1); }
+    0% {transform: scaleX(0); filter: hue-rotate(0deg); }
+    50% {filter: hue-rotate(360deg); }
+    100% {transform: scaleX(1); filter: hue-rotate(0deg); }
   }
 </style>
