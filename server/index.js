@@ -1,5 +1,5 @@
-import express from "express";
-import game from "./game/controller";
+const express = require('express');
+const game = require('./game/controller');
 
 // eslint-disable-next-line no-console
 console.log("loading...");
