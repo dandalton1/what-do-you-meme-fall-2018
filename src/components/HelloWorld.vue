@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <p><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/4d5c1c89-10c8-4b58-96c5-c9a7dcc06c2f-profile_image-300x300.png" width="200" height="200" /></p>
     <p>
       For guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -52,7 +53,7 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
+a, h1 {
   color: #42b983;
   animation: rgb 1.5s infinite alternate-reverse;
 }
