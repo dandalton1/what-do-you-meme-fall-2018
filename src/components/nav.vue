@@ -1,7 +1,6 @@
 <template>
-    <nav class="navgar navbar-expand-lg navbar-dark bg-dark">
-        <router-link class="navbar-brand" to="/"><img alt="Vue logo" src="../assets/logo.png" class="logo"></router-link>
-        <ul class="navbar-nav">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
                 <router-link class="nav-link" exact-active-class="active" to="/">Home</router-link>
             </li>
