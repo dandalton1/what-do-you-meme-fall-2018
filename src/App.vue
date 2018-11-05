@@ -21,7 +21,5 @@ export default {
 
 <style lang="scss">
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
-a {
-  transition: color 0.25s;
-}
+@import "global.scss";
 </style>

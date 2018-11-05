@@ -14,25 +14,3 @@
     </nav>
 </template>
 
-<style lang="scss">
-.logo {
-  height: 50px;
-}
-
-img {
-  animation: imgAnimation 1.5s infinite alternate-reverse;
-}
-@keyframes imgAnimation {
-  0% {
-    transform: scaleX(0);
-    filter: hue-rotate(0deg);
-  }
-  50% {
-    filter: hue-rotate(360deg);
-  }
-  100% {
-    transform: scaleX(1);
-    filter: hue-rotate(0deg);
-  }
-}
-</style>
