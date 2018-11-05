@@ -10,6 +10,18 @@ export function GetMyCaptions() {
     return myFetch(api_root + `/captions/${PlayerID}`);
   } else {
     return {
+      /*
+        JavaScript: The beauty of a weakly typed language.
+
+        How this statement works?
+        Would you expect to have a fetch method be able to handle a
+        "then" method? And then put a function inside of that method?
+
+        That's all this statement does: Return a blank object with a
+        "then" method, that takes a function, that sends an empty array
+        as its only parameter (a normal "fetch" method here would return
+        a string array of captions.)
+      */
       then: function(func) {
         func([]);
       }
@@ -18,8 +30,9 @@ export function GetMyCaptions() {
 }
 
 export function Login(name) {
-  return myFetch(api_root + `/players`, { name: name })
-  .then(x => PlayerID = x.id);
+  return myFetch(api_root + `/players`, { name: name }).then(
+    x => (PlayerID = x.id)
+  );
 }
 
 export function FlipPicture() {
