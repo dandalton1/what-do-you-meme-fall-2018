@@ -47,8 +47,13 @@
 </template>
 
 <script>
-import { GetState, FlipPicture, GetMyCaptions, Login,
-         PlayerID } from "@/services/api_access";
+import {
+  GetState,
+  FlipPicture,
+  GetMyCaptions,
+  Login,
+  PlayerID
+} from "@/services/api_access";
 
 export default {
   name: "game",
@@ -66,15 +71,18 @@ export default {
     this.refresh();
   },
   methods: {
-    flipPicture: function() {
-      FlipPicture().then(x => GetState().then(x => (this.state = x))).then(this.refresh);
+    flipPicture() {
+      FlipPicture()
+        .then(x => GetState().then(x => (this.state = x)))
+        .then(this.refresh);
     },
-    login: function() {
-      Login(prompt('what is ur name')).then(this.refresh);
+    login() {
+      Login(prompt("what is ur name")).then(this.refresh);
     },
-    refresh: function() {
-      GetState().then(x => this.state = x)
-      .then(GetMyCaptions().then(x => this.myCaptions = x));
+    refresh() {
+      GetState()
+        .then(x => (this.state = x))
+        .then(GetMyCaptions().then(x => (this.myCaptions = x)));
     }
   }
 };
