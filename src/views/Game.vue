@@ -47,13 +47,7 @@
 </template>
 
 <script>
-import {
-  GetState,
-  FlipPicture,
-  GetMyCaptions,
-  Login,
-  PlayerID
-} from "@/services/api_access";
+import APIAccess from "@/services/api_access";
 
 export default {
   name: "game",
@@ -72,17 +66,17 @@ export default {
   },
   methods: {
     flipPicture() {
-      FlipPicture()
-        .then(x => GetState().then(x => (this.state = x)))
+      APIAccess.FlipPicture()
+        .then(x => APIAccess.GetState().then(x => (this.state = x)))
         .then(this.refresh);
     },
     login() {
-      Login(prompt("what is ur name")).then(this.refresh);
+      APIAccess.Login(prompt("what is ur name")).then(this.refresh);
     },
     refresh() {
-      GetState()
+      APIAccess.GetState()
         .then(x => (this.state = x))
-        .then(GetMyCaptions().then(x => (this.myCaptions = x)));
+        .then(APIAccess.GetMyCaptions().then(x => (this.myCaptions = x)));
     }
   }
 };
