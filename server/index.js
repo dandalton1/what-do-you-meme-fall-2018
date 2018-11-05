@@ -18,6 +18,15 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use("/", express.static(__dirname + "/../dist/"));
 app.use("/game", game);
+app.use(function(req, res, next) {
+    if (res.headersSent) { return next(); }
+    res.send("404 error when trying to access " + req.baseUrl);
+})
+app.use(function(err, req, res, next) {
+    if (res.headersSent) { return next(); }
+    res.status(500).send("500 error when trying to access " + req.baseUrl + ":\n" + err.stack);
+    console.error(err.stack);
+})
 
 app.listen(port);
 

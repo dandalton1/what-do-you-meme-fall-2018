@@ -70,28 +70,28 @@ export default {
       FlipPicture().then(x => GetState().then(x => (this.state = x))).then(this.refresh);
     },
     login: function() {
-      Login(prompt('what is ur name')).then(this.refresh)
-      .then(GetMyCaptions().then(x => this.myCaptions = x));
+      Login(prompt('what is ur name')).then(this.refresh);
     },
     refresh: function() {
-      GetState().then(x => this.state = x);
+      GetState().then(x => this.state = x)
+      .then(GetMyCaptions().then(x => this.myCaptions = x));
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-    li { 
-        display: flex; 
-        align-content: center;
-        justify-content: space-between;
-        img {
-            width: 30px;
-            height: 30px;
-            margin-right: 5px;
-        }
-        h5 {
-            flex-grow: 1;
-        }
-    }
+li {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
+  h5 {
+    flex-grow: 1;
+  }
+}
 </style>
