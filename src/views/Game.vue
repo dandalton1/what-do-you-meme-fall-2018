@@ -9,7 +9,7 @@
                 <img class="card-img-top" src="" alt="Card image caption" />
                 <h5 class="card-header">
                     Players
-                    <a class="btn btn-small" @click.prevent="login">+</a>
+                    <a class="btn btn-small" @click.prevent="login" :class="{disabled: PlayerID() !== null}">+</a>
                 </h5>
                 <p>Count: {{state.players.length}}</p>
                 <ul class="list-group list-group-flush">
@@ -58,10 +58,11 @@ export default {
         players: [],
         playedCaptions: []
       },
-      myCaptions: []
+      myCaptions: [],
+      api: APIAccess
     };
   },
-  created: function() {
+  created() {
     this.refresh();
   },
   methods: {
@@ -77,6 +78,11 @@ export default {
       APIAccess.GetState()
         .then(x => (this.state = x))
         .then(APIAccess.GetMyCaptions().then(x => (this.myCaptions = x)));
+    }
+  },
+  computed: {
+    PlayerID: () => {
+      return APIAccess.PlayerID;
     }
   }
 };

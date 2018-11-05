@@ -38,17 +38,27 @@ function Login(name) {
 function FlipPicture() {
   return myFetch(api_root + "/picture", {});
 }
+function SubmitCaption(caption) {
+  return myFetch(api_root + "/playedCaptions", { text: caption });
+}
+function ChooseCaption(caption) {
+  return myFetch(api_root + "/playedCaptions/choose", { text: caption });
+}
 
 function myFetch(url = ``, data = null) {
   let options = {
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "same-origin" // include, same-origin, *omit
+    credentials: "same-origin", // include, same-origin, *omit
+    headers: {
+      PlayerID: PlayerID
+    }
   };
   if (data) {
     options = {
       ...options,
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
+        ...options.headers,
         "Content-Type": "application/json; charset=utf-8"
         // "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -65,5 +75,7 @@ export default {
   GetState: GetState,
   GetMyCaptions: GetMyCaptions,
   Login: Login,
-  FlipPicture: FlipPicture
+  FlipPicture: FlipPicture,
+  SubmitCaption: SubmitCaption,
+  ChooseCaption: ChooseCaption
 };
