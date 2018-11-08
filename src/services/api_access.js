@@ -1,11 +1,11 @@
 const api_root = "http://localhost:80/game";
-let PlayerID = null;
+export let PlayerID = null;
 
-function GetState() {
+export function GetState() {
   return myFetch(api_root + "/");
 }
 
-function GetMyCaptions() {
+export function GetMyCaptions() {
   if (PlayerID != null && PlayerID != undefined) {
     return myFetch(api_root + `/captions/${PlayerID}`);
   } else {
@@ -29,20 +29,20 @@ function GetMyCaptions() {
   }
 }
 
-function Login(name) {
+export function Login(name) {
   return myFetch(api_root + `/players`, { name: name }).then(
     x => (PlayerID = x.id)
   );
 }
 
-function FlipPicture() {
+export function FlipPicture() {
   return myFetch(api_root + "/picture", {});
 }
-function SubmitCaption(caption) {
+export function SubmitCaption(caption) {
   return myFetch(api_root + "/playedCaptions", { text: caption });
 }
-function ChooseCaption(caption) {
-  return myFetch(api_root + "/playedCaptions/choose", { text: caption });
+export function ChooseCaption(c) {
+  return myFetch(api_root + "/playedCaptions/choose", { text: c.text });
 }
 
 function myFetch(url = ``, data = null) {
@@ -69,13 +69,3 @@ function myFetch(url = ``, data = null) {
     return response.json();
   }); // parses response to JSON
 }
-
-export default {
-  PlayerID: PlayerID,
-  GetState: GetState,
-  GetMyCaptions: GetMyCaptions,
-  Login: Login,
-  FlipPicture: FlipPicture,
-  SubmitCaption: SubmitCaption,
-  ChooseCaption: ChooseCaption
-};
