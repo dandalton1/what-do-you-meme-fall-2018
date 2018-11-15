@@ -68,6 +68,7 @@
 
 <script>
 import * as api from "@/services/api_access";
+import * as fb from "@/services/facebook";
 
 let loopTimer = null;
 
@@ -96,7 +97,8 @@ export default {
         .then(this.refresh);
     },
     login() {
-      api.Login(prompt("what is ur name")).then(this.refresh);
+      fb.FBLogin();
+      // api.Login(prompt("what is ur name")).then(this.refresh);
     },
     refresh() {
       api

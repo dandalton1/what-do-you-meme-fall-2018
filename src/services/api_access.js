@@ -29,10 +29,12 @@ export function GetMyCaptions() {
   }
 }
 
-export function Login(name) {
-  return myFetch(api_root + `/players`, { name: name }).then(
-    x => (PlayerID = x.id)
-  );
+export function Login(name, fbid, access_token) {
+  return myFetch(api_root + `/players`, {
+    name: name,
+    fbid: fbid,
+    access_token: access_token
+  }).then(x => (PlayerID = x.id));
 }
 
 export function FlipPicture() {
